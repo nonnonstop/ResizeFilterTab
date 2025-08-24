@@ -1,0 +1,18 @@
+{
+	"name": "C# (.NET)",
+	"image": "mcr.microsoft.com/devcontainers/dotnet:1-9.0-bookworm",
+	"mounts": [
+		{
+			"source": "/mnt/e/SteamLibrary/steamapps/common/RimWorld",
+			"target": "/RimWorld",
+			"type": "bind"
+		}
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-dotnettools.csdevkit"
+			]
+		}
+	}
+}
