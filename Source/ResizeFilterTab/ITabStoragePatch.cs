@@ -16,7 +16,7 @@ namespace ResizeFilterTab
         }
     }
 
-    [HarmonyPatch(typeof(ITab_Storage), nameof(ITab_Storage.OnOpen))]
+    [HarmonyPatch(typeof(ITab_Storage), "FillTab")]
     public static class ITabStoragePatch
     {
         public static void Prefix(ref Vector2 ___WinSize, ref Vector2 ___size)
@@ -25,7 +25,7 @@ namespace ResizeFilterTab
         }
     }
 
-    [HarmonyPatch(typeof(ITab_PenAnimals), nameof(ITab_PenAnimals.OnOpen))]
+    [HarmonyPatch(typeof(ITab_PenAnimals), "FillTab")]
     public static class ITabPenAnimalsPatch
     {
         public static void Prefix(ref Vector2 ___WinSize, ref Vector2 ___size)
@@ -34,7 +34,7 @@ namespace ResizeFilterTab
         }
     }
 
-    [HarmonyPatch(typeof(ITab_PenAutoCut), nameof(ITab_PenAutoCut.OnOpen))]
+    [HarmonyPatch(typeof(ITab_PenAutoCut), "FillTab")]
     public static class ITabPenAutoCutPatch
     {
         public static void Prefix(ref Vector2 ___WinSize, ref Vector2 ___size)

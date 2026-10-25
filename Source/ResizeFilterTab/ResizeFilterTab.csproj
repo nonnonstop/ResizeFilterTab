@@ -1,11 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net472</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <_GamePath>/RimWorld</_GamePath>
     <_RootDir>../..</_RootDir>
-    <PublishDir>$(_RootDir)/1.3/Assemblies</PublishDir>
+    <PublishDir>$(_RootDir)/1.7/Assemblies</PublishDir>
     <_ModDir>$(_GamePath)/Mods/$(MSBuildProjectName)</_ModDir>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
     <DebugSymbols>False</DebugSymbols>
@@ -13,15 +15,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>$(_GamePath)/Mods/2009463077/Current/Assemblies/0Harmony.dll</HintPath>
+      <HintPath>$(_GamePath)/Mods/2009463077/1.7/Assemblies/0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>$(_GamePath)/RimWorldWin64_Data/Managed/Assembly-CSharp.dll</HintPath>
+      <HintPath>$(_GamePath)/Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>$(_GamePath)/RimWorldWin64_Data/Managed/UnityEngine.CoreModule.dll</HintPath>
+    <Reference Include="UnityStubs">
+      <HintPath>$(_GamePath)/UnityStubs.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -30,9 +32,11 @@
     <ItemGroup>
       <AboutFiles Include="$(_RootDir)/About/**/*" />
       <Version13Files Include="$(_RootDir)/1.3/**/*" />
+      <Version17Files Include="$(_RootDir)/1.7/**/*" />
     </ItemGroup>
     <Copy SourceFiles="@(AboutFiles)" DestinationFolder="$(_ModDir)/About/%(RecursiveDir)" />
     <Copy SourceFiles="@(Version13Files)" DestinationFolder="$(_ModDir)/1.3/%(RecursiveDir)" />
+    <Copy SourceFiles="@(Version17Files)" DestinationFolder="$(_ModDir)/1.7/%(RecursiveDir)" />
   </Target>
 
 </Project>
